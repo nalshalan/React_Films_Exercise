@@ -1,0 +1,22 @@
+body {
+  background-color: rgb(61, 57, 57);
+  color: white;
+}
+
+.movie-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  border: 2px solid white;
+  margin: 1rem 0;
+  gap: .5rem;
+}
+
+ul img {
+  width: 100%;
+  height: auto;
+}
+
+body p {
+  font-size: 18px;
+}
