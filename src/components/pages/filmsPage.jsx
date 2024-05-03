@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { filterFilmsByDirector, getListOf } from '../Helpers/FilmHelpers/filmHelpers';
+import { filterFilmsByDirector, getListOf, getFilmStats } from '../Helpers/FilmHelpers/filmHelpers';
+import { Link } from 'react-router-dom'
 import './filmsPage.css'
 
 function FilmsPage() {
@@ -24,6 +25,8 @@ function FilmsPage() {
   const filteredFilms = filterFilmsByDirector(films, searchDirector);
   // Getting all of the unique director names, so we can use them as options for the dropdown menu
   const allDirectors = getListOf(films, "director");
+// Displaying film score, latest film and total films for the filtered list of films
+  const { avg_score, total, latest } = getFilmStats(filteredFilms);
 
   return (
     <>
@@ -50,10 +53,12 @@ function FilmsPage() {
       
       <div>
           <ul>
-            {filteredFilms.map((film) =>{
+            {filteredFilms.map((film) => {
               return <li key={film.id}className="movie-info">
                 <div className="movie-left">
-                  <h2>{film.title}</h2>
+                  <Link to={`film/${film.id}`}>
+                    <h2>{film.title}</h2>
+                  </Link>
                   <img src={film.image} alt={`${film.title} banner`}/>
                 </div>
                 <div className="movie-right">
@@ -65,6 +70,21 @@ function FilmsPage() {
             })}
           </ul>
       </div>
+
+      <div className="filmStats">
+        <div>
+          <span># Of Films:</span>
+          <span>{total}</span>
+        </div>
+        <div>
+          <span>Average Rating:</span>
+          <span>{avg_score.toFixed(2)} %</span>
+        </div>
+        <div>
+          <span>Latest Film:</span>
+          <span>{latest}</span>
+        </div>
+        </div>
     </>
   )
 }

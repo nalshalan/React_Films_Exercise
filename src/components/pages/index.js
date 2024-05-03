@@ -4,5 +4,6 @@
 // just import it all from this file
 import HomePage from "./homePage";
 import FilmsPage from  "./filmsPage";
+import SingleFilmPage from "./singleFilm.page";
 
-export { HomePage, FilmsPage };
+export { HomePage, FilmsPage, SingleFilmPage };

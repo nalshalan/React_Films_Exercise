@@ -16,3 +16,13 @@ nav > ul {
 .activeLink {
     color: red;
 }
+
+.filmStats > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filmStats {
+    max-width: 30%;
+    margin-inline: auto;
+}

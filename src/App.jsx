@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react'
 import { BrowserRouter, NavLink, Routes, Route} from 'react-router-dom'
-import { HomePage, FilmsPage } from './components/pages/index';
+import { HomePage, FilmsPage, SingleFilmPage } from './components/pages/index';
 import "./App.css"
 
 function App() {
@@ -15,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/films' element={<FilmsPage />} />
+        <Route path='films/film/:id' element={<SingleFilmPage />} />
       </Routes>
     </BrowserRouter>
   )
